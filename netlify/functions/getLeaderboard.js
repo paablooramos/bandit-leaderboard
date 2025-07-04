@@ -30,9 +30,12 @@ async function checkAffiliate(steamid) {
 }
 
 async function getWager(steamid) {
-  // Aquí debes poner tu lógica real para obtener lo apostado
-  // Reemplaza esta parte con tu API real
-  return Math.floor(Math.random() * 1000); // placeholder
+  // Aquí se debe usar la API real para obtener lo apostado
+  // Por ejemplo, llamando a:
+  // https://api.bandit.camp/affiliates/leaderboard?limit=30&start=2025-07-01&end=2025-08-01
+  // y filtrando por steamid
+  // Por ahora, es un placeholder:
+  return Math.floor(Math.random() * 1000);
 }
 
 exports.handler = async function(event, context) {
