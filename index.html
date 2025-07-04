@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leaderboard</title>
+
+  <!-- Roboto font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #0f0f1a 0%, #050510 100%);
+      font-family: 'Roboto', sans-serif;
+      color: white;
+    }
+
+    header {
+      text-align: center;
+      padding: 1.5rem 1rem 1rem;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background: radial-gradient(circle at top, #0f0f1a 0%, #050510 100%);
+      padding: 0.8rem 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.8);
+      user-select: none;
+    }
+
+    .tab {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 12px;
+      color: #9ee7ff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background-color 0.4s, color 0.4s, transform 0.3s;
+    }
+
+    .tab:hover,
+    .tab.active {
+      color: #FFD700;
+      background-color: #23395d;
+      transform: scale(1.1);
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 2rem auto 4rem;
+      padding: 0 1rem;
+    }
+
+    .timer {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .time-box {
+      background: #1c1c2e;
+      padding: 1rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      color: #9ee7ff;
+      min-width: 60px;
+    }
+
+    .top3 {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem auto;
+      max-width: 1000px;
+      text-align: center;
+    }
+
+    .card {
+      background: #1c1c2e;
+      padding: 1rem;
+      border-radius: 16px;
+      width: 200px;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+      position: relative;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .card.gold {
+      border: 2px solid gold;
+    }
+
+    .card.silver {
+      border: 2px solid silver;
+    }
+
+    .card.bronze {
+      border: 2px solid #cd7f32;
+    }
+
+    .card .reward {
+      background: black;
+      padding: 0.5rem;
+      margin-top: 1rem;
+      border-radius: 8px;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: white;
+    }
+
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid #333;
+      text-align: center;
+    }
+
+    th {
+      color: #9ee7ff;
+      font-weight: bold;
+    }
+
+    .instructions {
+      max-width: 600px;
+      margin: 3rem auto;
+      padding: 1rem;
+      text-align: center;
+      color: #9ee7ff;
+      font-size: 1.1rem;
+    }
+
+    .instructions h2 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .instructions a {
+      color: #FFD700;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .instructions a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="tabs">
+    <div class="tab active" id="tab-leaderboard">🏆 Leaderboard</div>
+  </div>
+
+  <section id="leaderboard-section">
+    <header>
+      <p style="color: #9ee7ff; font-size: 1.2rem;">📅From July 1 to August 1📅</p>
+      <p style="color: gold; font-size: 1.3rem; margin-top: 0.5rem;">
+        🏆 Prize Pool: <strong>90 Scrap + Free Battle🏆</strong>
+      </p>
+      <h1 style="color: #9ee7ff;">END IN:</h1>
+      <div class="timer" id="countdown-leaderboard">
+        <div class="time-box"><span id="days-leaderboard">00</span><br />DAYS</div>
+        <div class="time-box"><span id="hours-leaderboard">00</span><br />HRS</div>
+        <div class="time-box"><span id="minutes-leaderboard">00</span><br />MIN</div>
+        <div class="time-box"><span id="seconds-leaderboard">00</span><br />SEC</div>
+      </div>
+    </header>
+
+    <section class="top3">
+      <div class="card silver">
+        <h3>2nd🥈</h3>
+        <p>???</p>
+        <p>Deposited: *******</p>
+        <div class="reward">25 Scrap</div>
+      </div>
+      <div class="card gold">
+        <h3>1st🥇</h3>
+        <p>???</p>
+        <p>Deposited: *******</p>
+        <div class="reward">45 Scrap</div>
+      </div>
+      <div class="card bronze">
+        <h3>3rd🥉</h3>
+        <p>???</p>
+        <p>Deposited: *******</p>
+        <div class="reward">10 Scrap</div>
+      </div>
+    </section>
+
+    <section class="leaderboard">
+      <h2 style="text-align: center; color: #FFD700;">LEADERBOARD RANKING</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>User</th>
+            <th>Deposited/Wager</th>
+            <th>Rewards</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>#1</td><td>???</td><td>*******</td><td>45 scrap</td></tr>
+          <tr><td>#2</td><td>???</td><td>*******</td><td>25 scrap</td></tr>
+          <tr><td>#3</td><td>???</td><td>*******</td><td>10 scrap</td></tr>
+          <tr><td>#4</td><td>???</td><td>*******</td><td>5 scrap</td></tr>
+          <tr><td>#5</td><td>???</td><td>*******</td><td>Free Battle</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="instructions">
+      <h2>How to Compete & Win</h2>
+      <p>1️⃣ Join our <a href="https://discord.com/channels/1363866306767622296/1366784029738663973" target="_blank" rel="noopener noreferrer">Discord Rakeback Rain Alert</a></p>
+      <p>2️⃣ Open a ticket & follow the steps</p>
+      <p>3️⃣ Use code <a href="https://bandit.camp/r/paramo" target="_blank" rel="noopener noreferrer">PARAMO</a> to get bonuses</p>
+      <p>4️⃣ Deposit and climb the leaderboard</p>
+      <p>✅Hosting by Rakeback Rain server✅</p>
+    </section>
+  </section>
+
+  <script>
+    // Leaderboard countdown: 29 días desde ahora
+    const leaderboardEndDate = new Date(Date.now() + 29 * 24 * 60 * 60 * 1000);
+
+    function updateCountdownLeaderboard() {
+      const now = new Date();
+      let timeLeft = leaderboardEndDate - now;
+      if (timeLeft < 0) timeLeft = 0;
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      timeLeft %= (1000 * 60 * 60 * 24);
+      const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+      timeLeft %= (1000 * 60 * 60);
+      const minutes = Math.floor(timeLeft / (1000 * 60));
+      timeLeft %= (1000 * 60);
+      const seconds = Math.floor(timeLeft / 1000);
+
+      document.getElementById('days-leaderboard').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours-leaderboard').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes-leaderboard').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds-leaderboard').textContent = String(seconds).padStart(2, '0');
+    }
+
+    setInterval(() => {
+      updateCountdownLeaderboard();
+    }, 1000);
+
+    updateCountdownLeaderboard();
+  </script>
+</body>
+</html>
